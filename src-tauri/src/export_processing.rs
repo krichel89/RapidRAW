@@ -2208,7 +2208,8 @@ pub(crate) async fn export_images_impl(
                         )?;
                     }
 
-                    crate::immich::on_exported(&app_handle_clone, &source_path_str, &output_path)
+                    crate::immich::on_exported(&app_handle_clone, &source_path_str, &output_path)?;
+                    crate::commons::on_exported(&app_handle_clone, &source_path_str, &output_path)
                 })();
 
                 if !cancellation_token_clone.load(Ordering::SeqCst) {

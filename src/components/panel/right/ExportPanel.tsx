@@ -35,6 +35,8 @@ import { useEditorStore } from '../../../store/useEditorStore';
 import { useUIStore } from '../../../store/useUIStore';
 import ImmichExportOptions, { useImmichExportAvailable, useImmichExportChoice } from '../../immich/ImmichExportOptions';
 import { prepareImmichExport } from '../../immich/immichApi';
+import CommonsExportOptions from '../../commons/CommonsExportOptions';
+import { prepareCommonsExport } from '../../commons/commonsApi';
 import { formatBytes } from '../../../utils/formatBytes';
 
 interface ExportPanelProps {
@@ -397,7 +399,11 @@ export default function ExportPanel({
   const osPlatform = useOsPlatform();
   const isAndroid = osPlatform === 'android';
   const canExportToImmich = useImmichExportAvailable() && !isAndroid;
-  const destination = destinationType === 'immich' && !canExportToImmich ? 'customFolder' : destinationType;
+  const canExportToCommons = !isAndroid;
+  const destination =
+    (destinationType === 'immich' && !canExportToImmich) || (destinationType === 'commons' && !canExportToCommons)
+      ? 'customFolder'
+      : destinationType;
   const immichExport = useImmichExportChoice();
   const activePanels = useUIStore((state) => state.activePanels);
   const isPanelReallyActive = Object.values(activePanels).includes(Panel.Export);
@@ -641,12 +647,18 @@ export default function ExportPanel({
       let outputFolderOrFile = '';
       const isOriginalFolder = destination === 'originalFolder';
       const isImmich = destination === 'immich';
-      const shouldChooseOutputFile = numImages === 1 && !preserveFolders && !isOriginalFolder && !isImmich;
+      const isCommons = destination === 'commons';
+      const shouldChooseOutputFile =
+        numImages === 1 && !preserveFolders && !isOriginalFolder && !isImmich && !isCommons;
 
       if (isImmich) {
         exportSettings.preserveFolders = false;
         exportSettings.exportOriginal = null;
         outputFolderOrFile = await prepareImmichExport(immichExport.album, immichExport.withOriginal);
+      } else if (isCommons) {
+        exportSettings.preserveFolders = false;
+        exportSettings.exportOriginal = null;
+        outputFolderOrFile = await prepareCommonsExport();
       } else if (isOriginalFolder) {
         outputFolderOrFile = 'originalFolderDummy';
       } else if (shouldChooseOutputFile) {
@@ -680,7 +692,7 @@ export default function ExportPanel({
 
       if (isAndroid || outputFolderOrFile) {
         if (!isAndroid) {
-          if (isOriginalFolder || isImmich) {
+          if (isOriginalFolder || isImmich || isCommons) {
             saveLastUsedPreset(lastExportPath || '');
           } else {
             const dir = shouldChooseOutputFile
@@ -694,7 +706,7 @@ export default function ExportPanel({
         }
 
         setExportState({
-          destination: isOriginalFolder || isImmich || isAndroid ? null : outputFolderOrFile,
+          destination: isOriginalFolder || isImmich || isCommons || isAndroid ? null : outputFolderOrFile,
           errorMessage: '',
           progress: { current: 0, total: numImages },
           status: Status.Exporting,
@@ -811,6 +823,7 @@ export default function ExportPanel({
                     { label: t('export.destination.customFolder'), value: 'customFolder' },
                     { label: t('export.destination.originalFolder'), value: 'originalFolder' },
                     ...(canExportToImmich ? [{ label: t('immich.export.destination'), value: 'immich' }] : []),
+                    ...(canExportToCommons ? [{ label: t('commons.export.destination'), value: 'commons' }] : []),
                   ]}
                   value={destination || 'customFolder'}
                   onChange={(val) => setDestinationType(val as string)}
@@ -819,6 +832,8 @@ export default function ExportPanel({
                 />
 
                 {destination === 'immich' && <ImmichExportOptions disabled={isExporting} />}
+
+                {destination === 'commons' && <CommonsExportOptions disabled={isExporting} />}
 
                 {destination === 'originalFolder' && (
                   <div className="flex items-center gap-3 pl-2 border-l-2 border-surface">
@@ -1153,7 +1168,7 @@ export default function ExportPanel({
                               onChange={setExportMasks}
                               disabled={isExporting}
                             />
-                            {destination !== 'immich' && (
+                            {destination !== 'immich' && destination !== 'commons' && (
                               <>
                                 <Switch
                                   label={t('export.advanced.exportOriginal')}

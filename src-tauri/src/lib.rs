@@ -38,6 +38,7 @@ mod bm3d;
 mod cache_utils;
 mod camera_tethering;
 mod clone_heal;
+mod commons;
 mod culling;
 mod demosaic;
 mod develop;
@@ -2995,6 +2996,16 @@ pub fn run() {
             immich::commands::immich_prepare_export,
             immich::commands::immich_remove_from_album,
             immich::commands::immich_timeline,
+            commons::commands::commons_get_settings,
+            commons::commands::commons_set_settings,
+            commons::commands::commons_status,
+            commons::commands::commons_begin_login,
+            commons::commands::commons_submit_code,
+            commons::commands::commons_cancel_login,
+            commons::commands::commons_complete_login,
+            commons::commands::commons_logout,
+            commons::commands::commons_test_connection,
+            commons::commands::commons_prepare_export,
             mediawiki::commands::mediawiki_get_metadata,
             mediawiki::commands::mediawiki_set_metadata,
         ])

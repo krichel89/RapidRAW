@@ -18,11 +18,15 @@ import ca from './locales/ca.json';
 import nl from './locales/nl.json';
 import cs from './locales/cs.json';
 import lt from './locales/lt.json';
+// Strings of the MediaWiki and Commons features live in their own files, so
+// merges of the locale files above stay free of conflicts.
+import extraEn from './extra/en.json';
+import extraDe from './extra/de.json';
 
 i18n.use(initReactI18next).init({
   resources: {
-    en: { translation: en },
-    de: { translation: de },
+    en: { translation: { ...en, ...extraEn } },
+    de: { translation: { ...de, ...extraDe } },
     'zh-CN': { translation: zhCN },
     'zh-TW': { translation: zhTW },
     pl: { translation: pl },

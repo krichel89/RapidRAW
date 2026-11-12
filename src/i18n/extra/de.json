@@ -1,0 +1,100 @@
+{
+  "mediawiki": {
+    "title": "MediaWiki",
+    "commonsDetails": "Metadaten für Wikimedia Commons",
+    "mixed": "(verschiedene Werte)",
+    "onePerLine": "einer pro Zeile",
+    "captionText": "Bildunterschrift",
+    "statementValue": "Q-Nummern mit ; getrennt oder Text",
+    "addRow": "Hinzufügen",
+    "removeRow": "Entfernen",
+    "multiSelection": "Änderungen gelten für alle {{count}} ausgewählten Bilder.",
+    "saveFailed": "Die MediaWiki-Metadaten konnten nicht gespeichert werden: {{error}}",
+    "groups": {
+      "file": "Datei",
+      "description": "Beschreibung",
+      "rights": "Urheber und Rechte",
+      "structured": "Strukturierte Daten und Kategorien",
+      "wikitext": "Wikitext",
+      "music": "Musik und Audio (wird noch nicht hochgeladen)"
+    },
+    "fields": {
+      "targetFilename": "Zieldateiname",
+      "date": "Datum",
+      "baseDescription": "Basisbeschreibung (alle Dateien)",
+      "description": "Beschreibung dieser Datei",
+      "captions": "Bildunterschriften (Sprache → Text)",
+      "author": "Urheber",
+      "photographerCategory": "Kategorie des Fotografen",
+      "creator": "Ersteller (Q-Nummer)",
+      "source": "Quelle",
+      "permission": "Genehmigung",
+      "license": "Lizenz",
+      "copyright": "Urheberrechtsstatus (Q-Nummer)",
+      "depicts": "Zeigt (P180)",
+      "ifNoDepicts": "Falls kein „Zeigt“",
+      "depictsOverride": "„Zeigt“ überschreiben",
+      "categories": "Kategorien",
+      "createdDuring": "Entstanden während (P10408)",
+      "cameraPosition": "Kamerastandort (Breite, Länge)",
+      "objectPosition": "Objektstandort (Breite, Länge)",
+      "galleryPage": "Galerieseite",
+      "gallerySuffix": "Galerie-Suffix",
+      "statements": "Aussagen (Eigenschaft → Wert)",
+      "templates": "Weitere Vorlagen",
+      "otherVersions": "Andere Versionen",
+      "extraWikitext": "Zusatz-Wikitext / Kommentare",
+      "compositionYear": "Kompositionsjahr",
+      "sourceTemplate": "Quellvorlage",
+      "composer": "Komponist",
+      "recordedBy": "Aufgenommen von",
+      "recordingTechnique": "Aufnahmetechnik",
+      "composerDied": "Todesjahr des Komponisten",
+      "compositionLicense": "Lizenz der Komposition",
+      "recordingLicense": "Lizenz der Aufnahme",
+      "instrument": "Instrument",
+      "period": "Epoche",
+      "work": "Werk (Kategoriename)",
+      "country": "Land"
+    }
+  },
+  "commons": {
+    "export": {
+      "destination": "Wikimedia Commons",
+      "uploaded": "Auf Commons hochgeladen: {{name}}"
+    },
+    "login": {
+      "signedInAs": "Angemeldet als {{name}}",
+      "test": "Testen",
+      "testOk": "Mit Commons verbunden als {{name}}",
+      "testFailed": "Verbindung zu Commons fehlgeschlagen: {{error}}",
+      "signOut": "Abmelden",
+      "notSignedIn": "Nicht bei Commons angemeldet.",
+      "notSetUp": "Trage zuerst unter „Commons-Einstellungen“ die OAuth-Client-ID ein.",
+      "signIn": "Bei Commons anmelden",
+      "waiting": "Der Browser wurde geöffnet. Bestätige dort RapidRAW; hier geht es danach von selbst weiter.",
+      "portBusy": "Die Antwort kann nicht von selbst ankommen (der Port ist belegt). Kopiere nach der Bestätigung die Adresse der geöffneten Seite oder den Code darin und füge sie hier ein.",
+      "pastePlaceholder": "Code oder Adresse aus dem Browser",
+      "submitCode": "Code verwenden",
+      "openAgain": "Browser erneut öffnen",
+      "cancel": "Abbrechen"
+    },
+    "settings": {
+      "title": "Commons-Einstellungen",
+      "clientId": "OAuth-Client-ID",
+      "clientIdHelp": "Registriere auf meta.wikimedia.org einen nicht-vertraulichen OAuth-2.0-Client mit dieser Rückruf-Adresse und trage seine Client-ID hier ein:",
+      "register": "Registrierungsseite öffnen",
+      "editSummary": "Zusammenfassung",
+      "trackingCategory": "Kategorie für jeden Upload (optional)",
+      "structuredCapture": "Aussagen aus der Datei",
+      "structuredCaptureDesc": "Ergänzt Entstehungsdatum, Medientyp und bei eigenem Werk die Quelle der Datei als strukturierte Daten.",
+      "ignoreWarnings": "Warnungen ignorieren",
+      "ignoreWarningsDesc": "Auch hochladen, wenn Commons warnt, etwa dass es eine Datei mit diesem Namen gibt.",
+      "saveFailed": "Die Commons-Einstellungen konnten nicht gespeichert werden: {{error}}"
+    },
+    "defaults": {
+      "title": "Werte für den ganzen Upload ({{count}} gesetzt)",
+      "help": "Diese Werte gelten für jedes Bild des Uploads. Was am Bild eingetragen ist, hat Vorrang; „Zeigt“ wird zusammengeführt."
+    }
+  }
+}

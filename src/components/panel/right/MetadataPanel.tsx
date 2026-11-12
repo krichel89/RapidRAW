@@ -17,6 +17,7 @@ import { useSettingsStore } from '../../../store/useSettingsStore';
 import { useProcessStore } from '../../../store/useProcessStore';
 import { useLibraryActions } from '../../../hooks/useLibraryActions';
 import { expandGroupedPaths } from '../../../utils/imageGrouping';
+import MediaWikiSection from '../../mediawiki/MediaWikiSection';
 
 interface CameraSetting {
   format?(value: number): string | number;
@@ -759,6 +760,8 @@ export default function MetadataPanel() {
                 </AnimatePresence>
               </div>
             </div>
+
+            <MediaWikiSection paths={targetPaths} resolveWritePaths={getPathsToUpdate} />
 
             {hasGps && gpsData?.lat && gpsData?.lon && (
               <div>

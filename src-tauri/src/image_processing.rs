@@ -82,11 +82,7 @@ pub struct ImageMetadata {
     pub tags: Option<Vec<String>>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub exif: Option<std::collections::HashMap<String, String>>,
-    #[serde(
-        default,
-        rename = "mediawiki",
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, rename = "mediawiki", skip_serializing_if = "Option::is_none")]
     pub media_wiki: Option<crate::mediawiki::model::MediaWikiFields>,
 }
 

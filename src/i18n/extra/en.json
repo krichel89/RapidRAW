@@ -1,0 +1,100 @@
+{
+  "mediawiki": {
+    "title": "MediaWiki",
+    "commonsDetails": "Wikimedia Commons metadata",
+    "mixed": "(different values)",
+    "onePerLine": "one per line",
+    "captionText": "Caption",
+    "statementValue": "Q-numbers separated by ; or text",
+    "addRow": "Add",
+    "removeRow": "Remove",
+    "multiSelection": "Changes apply to all {{count}} selected images.",
+    "saveFailed": "Could not save the MediaWiki metadata: {{error}}",
+    "groups": {
+      "file": "File",
+      "description": "Description",
+      "rights": "Author and rights",
+      "structured": "Structured data and categories",
+      "wikitext": "Wikitext",
+      "music": "Music and audio (not uploaded yet)"
+    },
+    "fields": {
+      "targetFilename": "Target filename",
+      "date": "Date",
+      "baseDescription": "Base description (all files)",
+      "description": "Description of this file",
+      "captions": "Captions (language → text)",
+      "author": "Author",
+      "photographerCategory": "Photographer's category",
+      "creator": "Creator (Q-number)",
+      "source": "Source",
+      "permission": "Permission",
+      "license": "Licence",
+      "copyright": "Copyright status (Q-number)",
+      "depicts": "Depicts (P180)",
+      "ifNoDepicts": "If no depicts",
+      "depictsOverride": "Depicts override",
+      "categories": "Categories",
+      "createdDuring": "Created during (P10408)",
+      "cameraPosition": "Camera position (latitude, longitude)",
+      "objectPosition": "Object position (latitude, longitude)",
+      "galleryPage": "Gallery page",
+      "gallerySuffix": "Gallery suffix",
+      "statements": "Statements (property → value)",
+      "templates": "Other templates",
+      "otherVersions": "Other versions",
+      "extraWikitext": "Extra wikitext / comments",
+      "compositionYear": "Year of composition",
+      "sourceTemplate": "Source template",
+      "composer": "Composer",
+      "recordedBy": "Recorded by",
+      "recordingTechnique": "Recording technique",
+      "composerDied": "Composer died",
+      "compositionLicense": "Licence of the composition",
+      "recordingLicense": "Licence of the recording",
+      "instrument": "Instrument",
+      "period": "Period",
+      "work": "Work (category name)",
+      "country": "Country"
+    }
+  },
+  "commons": {
+    "export": {
+      "destination": "Wikimedia Commons",
+      "uploaded": "Uploaded to Commons: {{name}}"
+    },
+    "login": {
+      "signedInAs": "Signed in as {{name}}",
+      "test": "Test",
+      "testOk": "Connected to Commons as {{name}}",
+      "testFailed": "Commons connection failed: {{error}}",
+      "signOut": "Sign out",
+      "notSignedIn": "Not signed in to Commons.",
+      "notSetUp": "Enter the OAuth client ID under Commons settings first.",
+      "signIn": "Sign in to Commons",
+      "waiting": "The browser was opened. Approve RapidRAW there; this window continues by itself.",
+      "portBusy": "The answer cannot arrive by itself (the port is in use). After approving, copy the address of the page that opens, or the code in it, and paste it here.",
+      "pastePlaceholder": "Code or address from the browser",
+      "submitCode": "Use code",
+      "openAgain": "Open the browser again",
+      "cancel": "Cancel"
+    },
+    "settings": {
+      "title": "Commons settings",
+      "clientId": "OAuth client ID",
+      "clientIdHelp": "Register a non-confidential OAuth 2.0 client on meta.wikimedia.org with this callback address, then enter its client ID here:",
+      "register": "Open the registration page",
+      "editSummary": "Edit summary",
+      "trackingCategory": "Category for every upload (optional)",
+      "structuredCapture": "Statements from the file",
+      "structuredCaptureDesc": "Adds inception date, media type and, for own work, the source of file as structured data.",
+      "ignoreWarnings": "Ignore warnings",
+      "ignoreWarningsDesc": "Upload even if Commons warns, for example that a file with this name exists.",
+      "saveFailed": "Could not save the Commons settings: {{error}}"
+    },
+    "defaults": {
+      "title": "Values for the whole upload ({{count}} set)",
+      "help": "These values apply to every image of the upload. Values entered on an image win; depicts are combined."
+    }
+  }
+}
