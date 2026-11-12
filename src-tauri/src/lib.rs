@@ -65,6 +65,7 @@ mod lens_correction;
 mod light_effects;
 mod lut_processing;
 mod mask_generation;
+mod mediawiki;
 mod memory_budget;
 mod motion_blur;
 mod multi_exposure;
@@ -2994,6 +2995,8 @@ pub fn run() {
             immich::commands::immich_prepare_export,
             immich::commands::immich_remove_from_album,
             immich::commands::immich_timeline,
+            mediawiki::commands::mediawiki_get_metadata,
+            mediawiki::commands::mediawiki_set_metadata,
         ])
         .build(tauri::generate_context!())
         .expect("error while building tauri application")

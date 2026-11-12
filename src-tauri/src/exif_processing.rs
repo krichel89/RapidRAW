@@ -416,6 +416,7 @@ fn is_default_sidecar(sidecar_path: &Path, source_path: &Path, metadata: &ImageM
     if metadata.rating != 0
         || metadata.flag.is_some()
         || metadata.tags.as_ref().is_some_and(|tags| !tags.is_empty())
+        || metadata.media_wiki.is_some()
         || !crate::image_processing::is_default_adjustments(&metadata.adjustments)
     {
         return false;
